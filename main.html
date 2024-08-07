@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h1>Weather App</h1>
+            <div class="search-container">
+                <input type="text" id="locationInput" placeholder="Enter a city">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="weather-info">
+                <h2 id="location"></h2>
+                <div id="current-weather">
+                    <p id="temperature"></p>
+                    <p id="description"></p>
+                </div>
+                <canvas id="myChart"></canvas>
+                <div id="weather-data"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

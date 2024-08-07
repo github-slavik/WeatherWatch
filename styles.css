@@ -1,0 +1,111 @@
+
+
+/* Styling for the background image */
+.background {
+    background-image: url("C:\\Users\\yaros\\Downloads\\R (5).jpg");
+    background-size: cover;
+    background-position: center;
+	
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#locationInput {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #357ae8;
+}
+
+.weather-info {
+    margin-top: 20px;
+}
+
+#current-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+#temperature {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#description {
+    font-size: 1.2em;
+    color: #666;
+}
+
+#weather-data {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+#weather-data ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#weather-data li {
+    flex: 1;
+    min-width: 80px;
+    background-color: #f9f9f9;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+canvas {
+    margin-top: 20px;
+}
