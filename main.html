@@ -10,7 +10,14 @@
 <body>
     <div class="background">
         <div class="container">
-            <h1>Weather App</h1>
+            <h1>Weather Watch</h1>
+            <div class="settings-container">
+                <label for="temperatureUnit">Temperature Unit:</label>
+                <select id="temperatureUnit">
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="celsius">Celsius</option>
+                </select>
+            </div>
             <div class="search-container">
                 <input type="text" id="locationInput" placeholder="Enter a city">
                 <button id="searchButton">Search</button>
