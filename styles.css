@@ -1,6 +1,4 @@
 
-
-/* Styling for the background image */
 .background {
     background-image: url("C:\\Users\\yaros\\Downloads\\R (5).jpg");
     background-size: cover;
@@ -108,4 +106,36 @@ h1 {
 
 canvas {
     margin-top: 20px;
+}
+
+.settings-container {
+    position: relative;
+    display: inline-block;
+}
+
+#settingsButton {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#settingsButton:hover {
+    background-color: #357ae8;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.settings-container:hover .dropdown-content {
+    display: block;
 }
