@@ -52,7 +52,7 @@ function fetchWeather(latitude, longitude) {
                 date.setHours(currentDate.getHours() + index);
                 
                 const day = date.toLocaleDateString('en-US', { weekday: 'short' });
-                const time = date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: false });
+                const time = date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: true });
                 
                 labels.push(`${day} ${time}`);
                 temperatures.push(Math.round(temp));
@@ -115,7 +115,7 @@ function fetchWeather(latitude, longitude) {
                 date.setHours(currentDate.getHours() + index);
 
                 const day = date.toLocaleDateString('en-US', { weekday: 'short' });
-                const time = date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: false });
+                const time = date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: true });
                 
                 weatherData.innerHTML += `<li data-index="${index}">${day} ${time}<br>${Math.round(temp)}°<br>${hourlyPrecipitation[index]}%</li>`;
             });
