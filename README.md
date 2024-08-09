@@ -2,11 +2,11 @@
 WeatherWatch is a simple tool that lets you view the weather forecast in cities all around the globe. This app uses Open-Meteo API to provide real-time weather data, including temperature and precipitation probability and allows users to change their preferred units.
 
 How to run the app:
-Step 1. Open your command prompt on your computer
-Step 2. Type the following command: git clone https://github.com/github-slavik/WeatherWatch.git
-Step 3. Next type the command: cd WeatherWatch
-Step 4. Next type the command: start main.html
-Step 5. These steps will open the main.html file in your default web browser
+1. Open your command prompt on your computer
+2. Type the following command: git clone https://github.com/github-slavik/WeatherWatch.git
+3. Next type the command: cd WeatherWatch
+4. Next type the command: start main.html
+5. These steps will open the main.html file in your default web browser
 
 Once you open the file you can:
 1. Enter a city name in the search bar and click search to display the temperature for the week and the precipitation probability
