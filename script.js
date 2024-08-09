@@ -1,5 +1,6 @@
 const searchButton = document.getElementById('searchButton');
 const locationInput = document.getElementById('locationInput');
+const temperatureUnitSelect = document.getElementById('temperatureUnit');
 
 searchButton.addEventListener('click', () => {
     const location = locationInput.value;
@@ -26,7 +27,9 @@ searchButton.addEventListener('click', () => {
 let myChart;
 
 function fetchWeather(latitude, longitude) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,precipitation_probability&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch`;
+    const temperatureUnit = temperatureUnitSelect.value;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,precipitation_probability&temperature_unit=${temperatureUnit}&precipitation_unit=mm&wind_speed_unit=kmh`;
    
     fetch(url)
         .then((response) => {
@@ -66,7 +69,7 @@ function fetchWeather(latitude, longitude) {
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Temperature (°F)',
+                            label: 'Temperature',
                             fill: false,
                             lineTension: 0,
                             backgroundColor: "rgba(0,0,255,1.0)",
@@ -104,23 +107,43 @@ function fetchWeather(latitude, longitude) {
                     }
                 }
             });
-            
-            let output = '<ul>';
-            hourlyTemperatures.slice(0, 24 * 7).forEach((temp, index) => {
+
+            const weatherData = document.getElementById('weather-data');
+            weatherData.innerHTML = '<ul>';
+            hourlyTemperatures.slice(0, 24).forEach((temp, index) => {
                 const date = new Date(currentDate.getTime());
                 date.setHours(currentDate.getHours() + index);
-                
+
                 const day = date.toLocaleDateString('en-US', { weekday: 'short' });
                 const time = date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: false });
                 
-                output += `<li>${day} ${time}: ${Math.round(temp)}°F, Precipitation: ${precipitations[index]}%</li>`;
+                weatherData.innerHTML += `<li data-index="${index}">${day} ${time}<br>${Math.round(temp)}°<br>${hourlyPrecipitation[index]}%</li>`;
             });
-            output += '</ul>';
-            document.getElementById('weather-data').innerHTML = output;
+            weatherData.innerHTML += '</ul>';
         })
         .catch((error) => {
-            console.error('Error fetching weather data:', error);
+            console.error('There was a problem with the fetch operation:', error);
         });
 }
 
-document.addEventListener('DOMContentLoaded', fetchWeather);
+temperatureUnitSelect.addEventListener('change', () => {
+    const location = locationInput.value;
+    if (location) {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
+        
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const latitude = parseFloat(data[0].lat);
+                    const longitude = parseFloat(data[0].lon);
+                    fetchWeather(latitude, longitude);
+                } else {
+                    console.error("Geocoding failed: Address not found");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data: " + error);
+            });
+    }
+});
